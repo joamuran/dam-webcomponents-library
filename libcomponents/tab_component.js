@@ -18,8 +18,16 @@ export class TabComponent extends BaseComponent {
         // Busquem els elements de classe tab dins el shadowRoot
         const tabs = this.querySelectorAll('.tab');
         // I tots els divs que hi ha al contingut, dins l'slot
-        const contents = this.shadowRoot.querySelector('slot[name="contents"]')?.assignedElements() || [];
+        //const contents = this.shadowRoot.querySelector('slot[name="contents"]')?.assignedElements() || [];
+        const contents = this.shadowRoot.querySelector('slot[name="contents"]')
+            ?.assignedElements()
+            .flatMap(slot => Array.from(slot.children)) || [];
 
+
+        // Amaguem tot inicialment
+        contents.forEach((c, index) => {
+            c.style.display = index === 0 ? 'block' : 'none';
+        });
 
         // I associem l'event clic en cada tab a que es mostre el contingut corresponent
         tabs.forEach((tab, index) => {
@@ -47,13 +55,11 @@ export class TabComponent extends BaseComponent {
             <style>
                 ${BaseComponent.styles}
                 .tabs {
-                /*::slotted(.tabs) {  */
                     display: flex;
                     border-bottom: 2px solid var(--primary-color);
                 }
 
-                ::slotted(.tab) {  
-                /*.tab {*/
+               ::slotted(.tab) {  
                     padding: 10px 20px;
                     cursor: pointer;
                     border: none;
@@ -61,16 +67,12 @@ export class TabComponent extends BaseComponent {
                     color: var(--text-color);
                 }
 
-
-                /*.tab.active {*/
                 ::slotted(.tab.active) {  
                     background: var(--primary-color);
                     color: white;
                 }
 
-                /*.content > div {*/
                 ::slotted(.content > div ) {  
-
                     display: none;
                     padding: 20px;
                     border: 1px solid var(--primary-color);
