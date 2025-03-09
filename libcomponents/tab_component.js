@@ -18,7 +18,6 @@ export class TabComponent extends BaseComponent {
         // Busquem els elements de classe tab dins el shadowRoot
         const tabs = this.querySelectorAll('.tab');
         // I tots els divs que hi ha al contingut, dins l'slot
-        //const contents = this.shadowRoot.querySelector('slot[name="contents"]')?.assignedElements() || [];
         const contents = this.shadowRoot.querySelector('slot[name="contents"]')
             ?.assignedElements()
             .flatMap(slot => Array.from(slot.children)) || [];
@@ -65,6 +64,7 @@ export class TabComponent extends BaseComponent {
                     border: none;
                     background: transparent;
                     color: var(--text-color);
+                    font-size: 1.4em;
                 }
 
                 ::slotted(.tab.active) {  

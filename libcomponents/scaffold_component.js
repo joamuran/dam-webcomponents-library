@@ -12,7 +12,11 @@ export class ScaffoldComponent extends BaseComponent {
                 }
 
                 .header {
-                    background: var(--primary-color);
+                    background-color: var(--primary-color);
+                    background-image: url(img/elust-pizza.png);
+                    background-repeat: no-repeat;
+                    background-size: contain;
+
                     color: white;
                     padding: 15px;
                     font-size: 1.5rem;

@@ -94,7 +94,7 @@ Aquí tens la continuació del README, documentant detalladament els **tres comp
 
 ## **Components disponibles**
 
-### **1BaseComponent**
+### **BaseComponent**
 
 El component **BaseComponent** és la base per a tots els altres Web Components. Defineix estils globals i proporciona una estructura comuna.
 
@@ -227,3 +227,20 @@ El DOM, una vegada renderitzat queda aixì:
     </div>
 </tab-component>
 ```
+
+### Component MyAlert
+
+Aquest component serveix per mostrar missatges personalitzats, a través de la funció `ShowMyAlert`.
+
+Per tal de mostrar un missatge de tipus Success, podem fer:
+
+```js
+ShowMyAlert("success", text_del_missatge)
+```
+
+I per mostrar un missatge d'error:
+
+```js
+ShowMyAlert("error", text_del_missate)
+```
+

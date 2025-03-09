@@ -20,6 +20,7 @@ export class BaseComponent extends HTMLElement { // Exportem la classe per usar-
                 font-family: 'Arial', sans-serif;
                 --primary-color: #6200ea;
                 --secondary-color: #03dac6;
+                --on-primary-color: #4500b5;
                 --text-color: #333;
                 --background-color: #fff;
             }
